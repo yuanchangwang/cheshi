@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div onclick="foo()">hello</div>
+<div class="c1">hello2</div>
+<ul>
+    <li>123</li>
+    <li>234</li>
+    <li>345</li>
+    <li>435</li>
+</ul>
+
+<script>
+    /*
+     dom对象.on事件=function(){
+         事件代码
+         this
+     }
+     */
+      var ele=document.getElementsByClassName("c1")[0];
+
+      ele .onclick=function () {
+          console.log(123);
+          console.log(this)   // 代指当前触发事件的标签/dom对象
+      };
+
+      var lis=document.getElementsByTagName("li");
+
+      for(var i=0;i<lis.length;i++){
+          lis[i].onclick=function () {
+              // console.log(this.innerHTML);
+              console.log(lis[i].innerHTML);
+          }
+      }
+
+      console.log(i)
+
+
+</script>
+
+</body>
+</html>

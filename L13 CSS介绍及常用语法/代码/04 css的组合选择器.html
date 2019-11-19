@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        /*1 后代选择器*/
+       /*.c1 p{*/
+           /*background-color: aqua;*/
+       /*}*/
+        /*2 子代选择器*/
+        /*.c1 > p{*/
+           /*background-color: green;*/
+       /*}*/
+        /*.c2 p{*/
+            /*color: red;*/
+        /*}*/
+        /*.c1 .c2 p{*/
+            /*color: red;*/
+        /*}*/
+
+        /*3 多元素选择器*/
+        /*.c3,.c4,span{*/
+            /*color: red;*/
+        /*}*/
+
+        /*4 AND选择器*/
+        /*p.c4{*/
+            /*color: red;*/
+        /*}*/
+
+        /*5 毗邻选择器*/
+        /*.c3 + .c4{*/
+            /*color: red;*/
+        /*}*/
+         .c3 ~ .c4{
+            color: red;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="c1">
+    <p>alex</p>
+    <div class="c2">
+        <p>alvin</p>
+    </div>
+</div>
+<p>Egon</p>
+
+<p class="c4">YYY</p>
+<div class="c3">张三</div>
+<div class="c4">李四</div>
+<span>王五</span>
+<p class="c4">XXX</p>
+
+</body>
+</html>

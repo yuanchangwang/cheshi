@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+          function foo() {
+              // alert('234')
+              // var ele=document.createElement("h1");  //  <h1></h1>
+              // ele.innerHTML="欢迎学习JS";  //  <h1>欢迎学习JS</h1>
+              // var des=document.getElementById("i1");
+              // des.appendChild(ele);
+
+              var des=document.getElementById("i2");
+              var parent=document.getElementsByTagName("body")[0];
+              parent.removeChild(des);
+
+
+          }
+    </script>
+</head>
+<body>
+
+<p id="i2" onclick="alert('123')">警告</p>
+<p onclick="foo()">abc</p>
+<div id="i1"></div>
+</body>
+</html>

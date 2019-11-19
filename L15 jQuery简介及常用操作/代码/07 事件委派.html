@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<ul class="c1">
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+</ul>
+<hr>
+<button class="add">ADD</button>
+
+<script src="jquery3.6.js"></script>
+<script>
+    // $(".c1 li").click(function () {
+    //     console.log($(this).html())
+    // });
+    //
+    $(".add").click(function () {
+      $(".c1").append("<li>444</li>")
+
+    });
+    
+    // $(".add").on("click",function () {
+    //
+    // });
+
+    // 事件委派
+    $(".c1").on("click","li",function () {
+          console.log($(this).html())
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        window.onload=function () {
+
+                var ele=document.getElementById("i1");
+                ele.ondblclick=function () {
+                    alert(123)
+                };
+
+                var ele2=document.getElementsByClassName("c1")[0];
+                ele2.onfocus=function () {
+                    console.log("我已经获取焦点")
+                };
+
+                ele2.onblur=function () {
+                    console.log("我已经移除input")
+                };
+
+                var ele3=document.getElementById("i2");
+                ele3.onchange=function () {
+                    console.log("OK");
+                    console.log(this.value);
+                };
+
+                var ele4=document.getElementsByClassName("c2")[0];
+                ele4.onkeydown=function (event) {
+                    console.log(event.which );
+                    if (event.which ===13){
+                        console.log("OK")
+                    }
+                };
+
+                var ele5=document.getElementById("i3");
+                ele5.onsubmit=function (event) {
+                    console.log(123);
+                    // return false
+                    event.preventDefault()
+                }
+
+        }
+
+    </script>
+</head>
+<body>
+<p id="i1">hello</p>
+<input type="text" class="c1">
+<select name="" id="i2">
+    <option value="1">111</option>
+    <option value="2">222</option>
+    <option value="3">333</option>
+</select>
+
+
+<input type="text" class="c2">
+<input type="file">
+
+<form action="" id="i3">
+    <input type="text" name="user">
+    <input type="submit">
+</form>
+
+</body>
+</html>

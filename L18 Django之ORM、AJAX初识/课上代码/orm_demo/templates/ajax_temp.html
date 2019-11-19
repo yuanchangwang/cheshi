@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="btn1">ajax_sleep</button>
+<button id="btn2">ajax_test</button>
+{% csrf_token %}
+<div>
+    <input type="text" id="i1"> + <input type="text" id="i2"> =
+    <input type="text" id="i3"><button id="sum1">计算</button><span id="s1"></span>
+</div>
+
+<hr>
+<button id="btn4">上传json数据</button>
+<hr>
+<h3>form表单上传文件</h3>
+{#<form action="/upload/" method="POST" enctype="multipart/form-data">#}
+    {% csrf_token %}
+    <input type="text" id="user" name="user">
+    <input type="file" id="file1" name="file_name">
+<button id="btn5">ajax上传文件</button>
+{#    <input type="submit">#}
+{#</form>#}
+
+
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+<script>
+    {#异步案例#}
+    $("#btn1").click(function () {
+        $.ajax({
+            url: "/ajax_sleep/",
+            type: "get",
+            success: function (data) {
+                console.log(data);
+            }
+        })
+    });
+    $("#btn2").click(function () {
+        $.ajax({
+            url: "/ajax_test/",
+            type: "get",
+            success: function (data) {
+                console.log(data);
+            }
+        })
+    });
+
+    {#计算案例#}
+    $("#sum1").click(function () {
+        var num1 = $("#i1").val();
+        var num2 = $("#i2").val();
+        $.ajax({
+            url: "/ajax_sum/",
+            type: "post",
+            data: {
+                num1: num1,
+                num2: num2,
+                csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
+            },
+            success: function (data) {
+                // JSON.parse(data) 反序列化才能使用
+                if (data.status){
+                    $("#i3").val(data.msg);
+                }else{
+                    $("#s1").text(data.msg);
+                    setTimeout(function () {
+                        $("#s1").text("");
+                    }, 2000)
+
+                }
+
+            }
+        })
+    });
+    {#上传json数据#}
+    $("#btn4").click(function () {
+        $.ajax({
+            url: "/ajax_json/",
+            type: "post",
+            contentType: "json",
+            headers: {"X-CSRFToken": $("[name='csrfmiddlewaretoken']").val()}, // 在请求头中添加csrf
+            data: JSON.stringify({
+                a:12,
+                b:23,
+                user: "alex",
+            }),
+            success: function (data) {
+                console.log(data)
+            }
+        })
+    });
+
+    {#ajax上传文件#}
+    $("#btn5").click(function () {
+        var formdata = new FormData();
+        formdata.append("csrfmiddlewaretoken", $("[name='csrfmiddlewaretoken']").val());
+        formdata.append("file_name", $("#file1")[0].files[0]);
+        $.ajax({
+            url: "/upload/",
+            type: "post",
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,  // 告诉jQuery不要去设置Content-Type请求头
+            data: formdata,
+            success: function (data) {
+                console.log(data);
+            }
+        })
+    })
+
+</script>
+
+
+</body>
+</html>

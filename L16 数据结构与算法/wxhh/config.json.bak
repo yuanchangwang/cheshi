@@ -1,0 +1,41 @@
+{
+    "master":{
+         "rootport":9999,
+         "webport":9998,
+         "log":"logs/masterlog.log"
+    },
+    "servers":{
+          "proxy":{
+                "port":10000,
+                "webport": 10001,
+                "name":"proxy",
+                "app":"proxy",
+                "remoteport":[
+                  {"rootport":30000, "rootname":"game"}
+                ]
+          },
+          "game":{
+                "rootport":30000,
+                "webport":30001,
+                "name":"game",
+                "app":"game"
+          }
+    },
+     "mysql": {
+          "use_env": "ali",
+           "hk": {
+              "host":"43.251.116.243",
+              "port": 40001,
+              "user":"ibb",
+              "passwd":"ibbgame168",
+              "db":"ibb_game"
+           },
+           "ali_sz": {
+              "host":"39.108.141.114",
+              "port": 40001,
+              "user":"ibb",
+              "passwd":"ibbgame168",
+              "db":"ibb_game"
+           }
+    }
+}

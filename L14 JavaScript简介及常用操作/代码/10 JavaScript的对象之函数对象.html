@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+           /*
+         function 函数名(参数,参数..) {
+                函数体
+         }
+
+
+         */
+
+
+           function add(x,y,z) {
+               console.log(z);
+               return x+y
+           }
+
+           // console.log(add(1,4,5,6));
+           console.log(add(1));
+
+           function add2() {
+               console.log(arguments);
+               var ret=0;
+               for(var i=0;i<arguments.length;i++){
+                   ret+=arguments[i]
+               }
+               console.log(ret)
+           }
+
+           add2(12,34,5,67,27)
+
+
+        //  匿名函数
+
+           (function (x,y) {
+                return x+y
+            })(12,4)
+
+
+
+
+
+    </script>
+</head>
+
+</body>
+</html>

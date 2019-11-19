@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="jquery3.6.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <style>
+        [class*="col-md-"] {
+            border: 1px solid rebeccapurple;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<div class="row">
+    <div class="col-md-3">111</div>
+    <div class="col-md-9">222</div>
+</div>
+
+<div class="row">
+    <div class="col-md-1">111</div>
+    <div class="col-md-1">111</div>
+    <div class="col-md-1">111</div>
+    <div class="col-md-1">111</div>
+    <div class="col-md-1">111</div>
+    <div class="col-md-1">111</div>
+    <div class="col-md-1">111</div>
+    <div class="col-md-1">111</div>
+    <div class="col-md-1">111</div>
+    <div class="col-md-1">111</div>
+    <div class="col-md-1">111</div>
+    <div class="col-md-1">111</div>
+    <div class="col-md-1">111</div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 col-sm-6">111</div>
+    <div class="col-md-9 col-sm-6">222</div>
+</div>
+
+<h4>列偏移</h4>
+<div class="row">
+    <div class="col-md-3 col-md-offset-4">111</div>
+
+</div>
+
+<h4>嵌套列</h4>
+
+<div class="row">
+    <div class="col-md-3">111</div>
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-6">666</div>
+            <div class="col-md-6">888</div>
+        </div>
+    </div>
+</div>
+
+<h4>列排序</h4>
+<div class="row">
+    <div class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3</div>
+</div>
+
+<p class="text-center">yuand sdf safdv qwrew sdfsdfs </p>
+
+<span class="glyphicon glyphicon-font"></span>
+<button class="btn btn-danger">ABC</button>
+<button class="btn btn-info">ABC</button>
+<button class="btn btn-warning">ABC</button>
+<button class="btn btn-default">ABC</button>
+<button class="btn btn-primary">ABC</button>
+<hr>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary col-md-offset-2" data-toggle="modal" data-target="#myModal">
+  添加员工
+</button>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>薪水</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>张三</td>
+                <td>23</td>
+                <td>2000</td>
+                <td>
+                    <button class="btn btn-danger btn-sm">删除</button>
+                    <button class="btn btn-warning btn-sm">编辑</button>
+                </td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>23</td>
+                <td>2000</td>
+                <td>
+                    <button class="btn btn-danger btn-sm">删除</button>
+                    <button class="btn btn-warning btn-sm">编辑</button>
+                </td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>23</td>
+                <td>2000</td>
+                <td>
+                    <button class="btn btn-danger btn-sm">删除</button>
+                    <button class="btn btn-warning btn-sm">编辑</button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<hr>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+
+          <!--form表单-->
+           <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+
+</body>
+</html>

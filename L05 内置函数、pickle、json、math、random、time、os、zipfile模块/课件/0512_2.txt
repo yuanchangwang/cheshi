@@ -1,0 +1,1 @@
+{"name": "刘铁蛋", "age": 18, "sex": "女性", "family": ["father", "妈妈"], "agz": 1}

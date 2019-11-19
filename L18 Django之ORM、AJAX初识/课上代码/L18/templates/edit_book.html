@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>编辑书籍</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>书名：<input type="text" name="title" value="{{ book_obj.title }}"></p>
+    <p>价格：<input type="text" name="price" value="{{ book_obj.price }}"></p>
+    <p>出版时间：<input type="text" name="pub_date" value="{{ book_obj.pub_date|date:'Y-m-d' }}"></p>
+    <input type="submit">
+</form>
+</body>
+</html>

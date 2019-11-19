@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        // window.alert(123);    // 警告提醒框
+        // var ret=window.confirm(123);  //
+        // console.log(ret);
+        // var ret2=window.prompt("请输入你的卡号");
+        // console.log(ret2)
+
+        // window.open('https://www.baidu.com/','https://www.baidu.com/','width=800,height=400,top=200,left=200');
+        // window.close()
+
+        //
+
+        // var ID=setInterval(function () {
+        //     console.log("OK")
+        // },1000);
+
+
+        var ID=setTimeout(function () {
+            console.log("OK@")
+        },1000);
+
+        clearTimeout(ID)
+
+
+
+    </script>
+</head>
+<body>
+<p onclick="clearInterval(ID)">停止</p>
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            width: 100%;
+            height: 60px;
+            background-color: #369;
+        }
+        .left,.right{
+            float: left;
+        }
+        .left{
+            width: 15%;
+            height: 750px;
+            background-color: gray;
+        }
+        .right{
+            width: 85%;
+            height: 750px;
+        }
+
+        .left .item{
+            padding: 10px;
+        }
+        .left .item .title{
+            text-align: center;
+            background-color: goldenrod;
+            padding: 5px;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header"></div>
+<div class="content">
+    <div class="left">
+        <div class="menu">
+              <div class="item">
+                <div class="title">菜单一</div>
+                <ul class="con">
+                   <li>111</li>
+                   <li>111</li>
+                   <li>111</li>
+                   <li>111</li>
+                </ul>
+            </div>
+              <div class="item">
+                <div class="title">菜单二</div>
+                <ul class="con hide">
+                   <li>111</li>
+                   <li>111</li>
+                   <li>111</li>
+                   <li>111</li>
+                </ul>
+            </div>
+              <div class="item">
+                <div class="title">菜单三</div>
+                <ul class="con hide">
+                   <li>111</li>
+                   <li>111</li>
+                   <li>111</li>
+                   <li>111</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="right"></div>
+</div>
+
+<script>
+
+    var titles=document.getElementsByClassName("title");
+    
+    for(var i=0;i<titles.length;i++){
+        titles[i].onclick=function () {
+            //  this : 当前点击菜单按钮
+            //   显示点击标签的兄弟标签
+            this.nextElementSibling.classList.remove("hide");
+
+            // 隐藏其他con标签
+            for (var j=0;j<titles.length;j++){
+                if (titles[j]!==this){
+                    titles[j].nextElementSibling.classList.add("hide");
+                }
+            }
+        }
+    }
+
+</script>
+
+</body>
+</html>

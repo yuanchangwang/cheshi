@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.6.js"></script>
+</head>
+<body>
+
+
+<div class="p2">
+    <div class="p1">
+    <ul>
+    <li>111</li>
+    <li class="c2">222</li>
+    <li>333</li>
+    <li>444</li>
+    <li>
+        <div class="c2">8888</div>
+    </li>
+    <li class="c3">666</li>
+</ul>
+    </div>
+</div>
+
+<input type="text">
+<script>
+
+   // $("ul li:first").css("color","red")
+   // $("ul li:last").css("color","red")
+   // $("ul li:gt(2)").css("color","red")
+   //
+   // $("ul li:lt(2)").css("color","red")
+    // $("ul li:eq(2)").css("color","red")
+   //  $("ul li:odd").css("color","red")
+    $(":text").css("border","1px solid red");
+    var num=2;
+    $("ul li").eq(num).css("color","red")
+</script>
+</body>
+</html>

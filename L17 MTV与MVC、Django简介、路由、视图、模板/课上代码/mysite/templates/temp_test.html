@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .green{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+{% load my_tags %}
+
+<h3>{{ username|default:"meiren" }}</h3>
+<h3>{{ username|length }}</h3>
+
+<hr>
+<h4>{{ num|filesizeformat }}</h4>
+<hr>
+
+<p>{{ now_time|date:"Y-m-d" }}</p>
+
+<p>{{ str1|truncatechars:10 }}</p>
+
+{#使用safe要慎重，一定要保证数据的安全性#}
+<p>{{ str_a|safe }}</p>
+
+<p>{{ list1.1 }}</p>
+
+<p>{{ dict1.name }}</p>
+<p>{{ dict1.age }}</p>
+
+<p>{{ a1.name.upper }}</p>
+<p>{{ a1.eat }}</p>
+
+
+{#标签#}
+<hr>
+
+<table border="1">
+    <tr>
+        <th>序号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+    </tr>
+    {% for a in a_list %}
+        {% if forloop.last %}
+        <tr class="green">
+
+            <td>{{ forloop.counter }}--{{ forloop.first }}++{{ forloop.last }}</td>
+            <td>{{ a.name }}</td>
+            <td>{{ a.age }}</td>
+        </tr>
+        {% else %}
+        <tr>
+
+            <td>{{ forloop.counter }}--{{ forloop.first }}++{{ forloop.last }}</td>
+            <td>{{ a.name }}</td>
+            <td>{{ a.age }}</td>
+        </tr>
+        {% endif %}
+
+    {% empty %}
+{#        当for循环没有正常走的时候，执行下面代码#}
+        <p>没有对象</p>
+
+    {% endfor %}
+
+
+</table>
+
+<hr>
+
+<p>{{ num1|my_filter:12 }}</p>
+
+<hr>
+<p>{% my_tag num1 12 10 %}</p>
+
+<hr>
+<p>{% my_input 12 'green' %}</p>
+
+
+{#<script>#}
+{#    for(var i = 0; i<10; i++){#}
+{#        alert("你好啊")#}
+{#    }#}
+{##}
+{#</script>#}
+</body>
+</html>

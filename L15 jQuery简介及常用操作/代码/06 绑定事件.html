@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.6.js"></script>
+    <script>
+         $(function () {
+                 // dom事件绑定
+                // var ele=document.getElementsByClassName("c1")[0];
+                // ele.onclick=function () {
+                //     console.log(this.innerHTML)   // this：dom对象
+                // };
+
+                // jquery的事件绑定
+                 /*
+                  jquery对象.事件(funcition(){})
+
+                  */
+
+                 $(".c1").click(function () {
+                     console.log(this); // 当前触发事件的标签，this是一个dom对象
+                     // console.log(this.innerHTML);
+                     // this.style.color="red"  // dom操作
+                     // this.css("color","red")  // dom对象不能调用jquery的方法
+                     $(this).css("color","red")//
+
+                 })
+
+         })
+    </script>
+</head>
+<body>
+
+<div class="c1">hello</div>
+<div class="c1">hello2</div>
+
+
+
+</body>
+</html>

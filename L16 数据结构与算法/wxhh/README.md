@@ -1,0 +1,109 @@
+
+##环境部署
+#### 常用软件安装
+```
+   yum install -y htop
+   yum install -y nmap
+   yum install -y supervisor nginx keepalived
+   yum install -y zlib* MySQL-python mysql-devel
+```
+
+#### python2.7.12安装
+```
+   mkdir -p /data/soft
+   mkdir -p /data/lib/
+   mkdir -p /data/log/
+   cd /data/soft/
+   wget https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tgz
+   tar -zpxf Python-2.7.12.tgz -C ./
+   mv Python-2.7.12 /data/lib/python2.7
+   cd /data/lib/python2.7
+   vim Modules/Setup.dist
+      去掉 #zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz
+   ./configure
+   make all
+   make install
+   make clean
+   make distclean
+
+   rm -f /usr/bin/python
+   ln -s /usr/local/bin/python2.7 /usr/bin/python
+
+   vim /usr/bin/yum
+      修改 #!/usr/bin/python    为  #!/usr/bin/python2.7
+   vim /usr/libexec/urlgrabber-ext-down
+      修改 #!/usr/bin/python    为  #!/usr/bin/python2.7
+```
+
+
+ ####pip更新
+ ```
+   cd /data/soft
+   wget https://bootstrap.pypa.io/get-pip.py
+   python get-pip.py
+   ln -s /usr/local/bin/pip2.7 /usr/bin/pip
+   pip install setuptools==33.1.1
+```
+
+####平台server环境
+```
+   mkdir -p /data/run
+   mkdir -p /data/project/im_platform/source
+   mkdir -p /data/log/nginx
+   mkdir -p /data/log/supervisor
+   pip install tornado ujson sqlalchemy mysql-python pykafka oss2 aliyun-python-sdk-core aliyun-python-sdk-sts pycrypto apscheduler
+```
+
+
+####mysql安装
+   ```
+   cd /data/soft
+   wget https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz
+   tar -zpxf mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz -C ./
+   mv mysql-5.7.17-linux-glibc2.5-x86_64 /data/lib/mysql
+   mkdir /data/lib/mysql/data
+   mkdir /data/tmp
+
+   groupadd mysql
+   useradd -g mysql mysql
+   chown -R mysql.mysql /data/lib/mysql/
+
+   cd /data/lib/mysql
+   ./bin/mysql_install_db --user=mysql --basedir=/data/lib/mysql/ --datadir=/data/lib/mysql/data/
+   cp -a ./support-files/mysql.server /etc/init.d/mysqld
+   chmod 755 /etc/init.d/mysqld
+   mkdir -p /usr/local/mysql/bin
+   ln -s /data/lib/mysql/bin/mysqld /usr/local/mysql/bin/mysqld
+   /etc/init.d/mysqld start
+
+   vim /etc/bashrc
+       文件末尾添加:
+       PATH=$PATH:/data/lib/mysql/bin
+	   export PATH
+   source /etc/bashrc
+
+   cat /root/.mysql_secret
+   mysql -u root -h127.0.0.1 -P40001 -p
+
+   SET PASSWORD  FOR 'root'@localhost = PASSWORD('123456');
+   update mysql.user set authentication_string=password('123456') where user='root';
+   update user set host ='%'where user ='root';
+   flush privileges;
+   alter user 'root'@'%' identified by '123456';
+   exit
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

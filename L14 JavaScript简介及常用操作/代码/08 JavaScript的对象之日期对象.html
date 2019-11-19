@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //方法1：不指定参数
+        var nowd1=new Date();
+        console.log(nowd1.toLocaleString( ));  // 2019/7/21 下午2:51:22
+
+
+        //方法2：参数为日期字符串
+        var nowd2=new Date("2004/3/20 11:12");
+        console.log(nowd2.toLocaleString( ));  // 2004/3/20 上午11:12:00
+
+
+        // var nowd3=new Date("04/03/20 11:12");
+        // console.log(nowd3.toLocaleString( ));
+        // //方法3：参数为毫秒数
+        var nowd3=new Date(500000000000000);
+        console.log(nowd3.toLocaleString( ));
+        console.log(nowd3.toUTCString());
+        //
+        // //方法4：参数为年月日小时分钟秒毫秒
+        // var nowd4=new Date(2004,2,20,11,12,0,300);
+        // console.log(nowd4.toLocaleString( ));//毫秒并不直接显示
+
+    </script>
+</head>
+<body>String
+
+</body>
+</html>

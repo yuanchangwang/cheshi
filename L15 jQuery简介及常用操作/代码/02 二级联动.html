@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<select id="province">
+    <option>请选择省:</option>
+</select>
+
+<select id="city">
+    <option>请选择市:</option>
+</select>
+
+
+<script>
+    data={"河北省":["廊坊","邯郸"],"北京":["朝阳区","海淀区"]};
+
+
+      var p=document.getElementById("province");
+      var c=document.getElementById("city");
+
+    for(var i in data){
+        var option_pro=document.createElement("option");
+
+        option_pro.innerHTML=i;
+
+        p.appendChild(option_pro);
+    }
+     p.onchange=function(){
+
+            pro=(this.options[this.selectedIndex]).innerHTML;
+            citys=data[pro];
+
+         c.options.length=0;
+
+         for (var i in citys){
+             var option_city=document.createElement("option");
+             option_city.innerHTML=citys[i];
+             c.appendChild(option_city);
+         }
+
+        }
+</script>
+
+</body>
+</html>

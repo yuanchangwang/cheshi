@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 600px;
+            height: 200px;
+            border: 1px solid red;
+            margin: 100px auto;
+        }
+        ul{
+            list-style: none;
+            border-bottom: 1px solid gray;
+        }
+        ul li{
+             display: inline-block;
+             padding: 5px 5px;
+            background-color: gray;
+        }
+        .hide{
+            display: none;
+        }
+
+        .active{
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <ul class="title">
+        <li rel="intro">商品介绍</li>
+        <li rel="comment">评价</li>
+        <li rel="sale-after">售后</li>
+    </ul>
+    <div class="content">
+        <div class="intro">
+            商品介绍...
+        </div>
+        <div class="comment hide">
+            评价...
+        </div>
+        <div class="sale-after hide">
+            售后...
+        </div>
+    </div>
+</div>
+
+
+
+<script src="jquery3.6.js"></script>
+<script>
+       $(".title li").click(function () {
+           $(this).addClass("active").siblings().removeClass("active");
+           $("."+$(this).attr("rel")).removeClass("hide").siblings().addClass("hide");
+       })
+</script>
+
+</body>
+</html>

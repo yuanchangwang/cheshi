@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div class="c1">
+    <p class="c3">hello yuan</p>
+
+    <div class="c3">welcome to JS</div>
+</div>
+<hr>
+<button class="add">add</button>
+<button class="change">change</button>
+<div></div>
+
+<script src="jquery3.6.js"></script>
+<script>
+    /*
+    var add=document.getElementsByClassName("add")[0];
+    var change=document.getElementsByClassName("change")[0];
+    var parent=document.getElementsByClassName("c1")[0];
+    var sib=document.getElementsByClassName("c3")[0];
+    var eles=document.getElementsByClassName("c3");
+
+    //  创建添加节点
+    add.onclick=function () {
+          // 创建img标签
+          var img=document.createElement("img"); //  <img src=''>
+          img.src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2121206715,2955288754&fm=27&gp=0.jpg"
+          // 添加标签 parent_node.appendChild("子节点")
+          //  parent.appendChild(img);
+          parent.insertBefore(img,sib);
+    };
+
+
+    //  删除节点  parent_node.removeChild(删除子节点)
+    for(var i=0;i<eles.length;i++){
+        eles[i].onclick=function () {
+                 // this
+                 this.parentElement.removeChild(this);
+        }
+    }
+
+    // 替换节点 parent_node.replaceChild(newnode, 某个节点);
+
+    change.onclick=function () {
+          var img=document.createElement("img"); //  <img src=''>
+          img.src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2121206715,2955288754&fm=27&gp=0.jpg"
+          parent.replaceWith(img,"yuan")
+
+    }
+    
+    */
+    
+    
+    $(".add").click(function () {
+        var $img=$("<img src=''>");
+        $img.attr("src","https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2121206715,2955288754&fm=27&gp=0.jpg")
+        // $(".c1").append($img)
+        // 方式2
+        // $(".c1").append("<img src='https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2121206715,2955288754&fm=27&gp=0.jpg'>")
+        // 方式3
+        // $img.appendTo(".c1");
+        // 方式4
+         $(".c3:first").after($img)
+
+    });
+    
+    $(".change").click(function () {
+        $(".c3:first").replaceWith("<img src='https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2121206715,2955288754&fm=27&gp=0.jpg'>")
+    });
+
+    $(".c3:eq(1)").click(function () {
+        $(this).remove()
+    })
+
+
+</script>
+
+
+
+</body>
+</html>

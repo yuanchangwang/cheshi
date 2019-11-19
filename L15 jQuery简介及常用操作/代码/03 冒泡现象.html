@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .c1{
+            width: 300px;
+            height: 300px;
+            background-color: #336699;
+        }
+        .c2{
+            width: 100px;
+            height: 100px;
+            background-color: goldenrod;
+        }
+    </style>
+</head>
+<body>
+
+<div class="c1">
+    <div class="c2"></div>
+</div>
+
+
+<ul>
+    <li>123</li>
+    <li>234</li>
+    <li>345</li>
+</ul>
+
+<script>
+    var ele1=document.getElementsByClassName("c1")[0];
+    var ele2=document.getElementsByClassName("c2")[0];
+    var ele3=document.getElementsByTagName("ul")[0];
+    ele1.onclick=function () {
+        alert("父亲标签")
+
+    };
+    ele2.onclick=function (e) {
+        alert("儿子标签");
+        e.stopPropagation()
+
+    };
+
+    ele3.onclick=function (e) {
+        console.log(e.target.innerHTML)
+    }
+</script>
+
+</body>
+</html>

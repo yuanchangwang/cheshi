@@ -1,0 +1,2 @@
+{"name": "\u5218\u94c1\u86cb", "age": 18, "sex": "\u5973\u6027", "family": ["father", "\u5988\u5988"], "agz": 1}
+{"name": "\u5218\u94c1\u86cb", "age": 18, "sex": "\u5973\u6027", "family": ["father", "\u5988\u5988"], "agz": 1}

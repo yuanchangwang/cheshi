@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function add() {
+             var now=new Date();
+             //console.log(now.toLocaleString());
+
+             // DOM操作
+            // (1) 查找操作标签
+            var ele=document.getElementById("i1");
+            console.log(ele);
+            // (2) 给input标签对象value属性赋值
+            ele.value=now.toLocaleString()
+
+        }
+
+        function start() {
+            add();
+            setInterval(add,1000)
+        }
+    </script>
+</head>
+<body>
+
+<input id="i1" type="text"><button onclick="start()">Add</button>
+
+</body>
+</html>
